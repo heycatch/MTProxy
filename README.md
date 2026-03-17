@@ -37,6 +37,9 @@ curl -s https://core.telegram.org/getProxySecret -o proxy-secret
 ```bash
 curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.conf
 ```
+```bash
+0 0 * * * curl -s https://core.telegram.org/getProxyConfig -o /opt/MTProxy/proxy-multi.conf
+```
 3. Generate a secret to be used by users to connect to your proxy.
 ```bash
 head -c 16 /dev/urandom | xxd -ps

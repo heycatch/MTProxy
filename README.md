@@ -16,7 +16,7 @@ yum groupinstall "Development Tools"
 
 Clone the repo:
 ```bash
-git clone https://github.com/TelegramMessenger/MTProxy
+git clone https://github.com/heycatch/MTProxy
 cd MTProxy
 ```
 
@@ -37,8 +37,12 @@ curl -s https://core.telegram.org/getProxySecret -o proxy-secret
 ```bash
 curl -s https://core.telegram.org/getProxyConfig -o proxy-multi.conf
 ```
+2.1. Enable automatic updates for .conf files.
 ```bash
-0 0 * * * curl -s https://core.telegram.org/getProxyConfig -o /opt/MTProxy/proxy-multi.conf
+crontab -e
+```
+```bash
+0 0 * * * curl -s https://core.telegram.org/getProxyConfig -o /opt/MTProxy/proxy-multi.conf && systemctl restart MTProxy.service
 ```
 3. Generate a secret to be used by users to connect to your proxy.
 ```bash
